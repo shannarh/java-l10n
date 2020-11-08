@@ -1,3 +1,6 @@
+# Custom ignores
+/builddeps/
+
 # Compiled class file
 *.class
 
