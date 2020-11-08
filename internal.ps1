@@ -2,8 +2,6 @@ $StartTime = Get-Date
 $BuildDepsPath = "$PSScriptRoot\builddeps"
 $SdkFilename = "OpenJDK15U-jdk_x64_windows_hotspot_15.0.1_9.zip"
 $SdkUrl = "https://github.com/AdoptOpenJDK/openjdk15-binaries/releases/download/jdk-15.0.1%2B9/$SdkFilename"
-$GradleFilename = "gradle-6.7-bin.zip"
-$GradleUrl = "https://services.gradle.org/distributions/$GradleFilename"
 
 function Invoke-FileDownload([string]$Url, [string]$Filename) {
     # Author: LincolnAtkinson
@@ -58,7 +56,7 @@ function Invoke-FileDownload([string]$Url, [string]$Filename) {
     $downloader = New-Object Downloader $source,$dest,$log
     # TODO: Error handling
     $downloader.Download();
-    
+
     Write-Output "Downloading $Url"
     do {
         Get-Content $log -Tail 1 -Wait `
@@ -93,15 +91,11 @@ Write-Output "Temp dir: $tempFolderPath"
 # Download dependencies
 Write-Output "Downloading dependencies..."
 Invoke-FileDownload -Url $SdkUrl -Filename "$tempFolderPath\$SdkFilename"
-Invoke-FileDownload -Url $GradleUrl -Filename "$tempFolderPath\$GradleFilename"
 
 # Extract downloaded files
 Write-Output "Extracting dependencies..."
 Write-Output "Extracting $SdkFilename"
 Expand-Archive -Path "$tempFolderPath\$SdkFilename" -DestinationPath "$BuildDepsPath"
-Write-Output "Done"
-Write-Output "Extracting $GradleFilename"
-Expand-Archive -Path "$tempFolderPath\$GradleFilename" -DestinationPath "$BuildDepsPath"
 Write-Output "Done"
 
 # Delete temp dir
