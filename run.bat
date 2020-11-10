@@ -1,4 +1,7 @@
 @echo off
-set JAVA_HOME="%~dp0/builddeps/jdk-15.0.1+9
-call java/gradlew.bat
+setlocal
+set JAVA_HOME="%~dp0\jdk-15.0.1+9
+cd java
+call gradlew.bat
+endlocal
 pause

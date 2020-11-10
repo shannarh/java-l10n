@@ -23,7 +23,7 @@
 hs_err_pid*
 
 # Custom ignores
-/builddeps/
+/jdk-*/
 .gradle
 build/
 local.properties

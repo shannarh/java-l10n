@@ -1,5 +1,5 @@
 $StartTime = Get-Date
-$BuildDepsPath = "$PSScriptRoot\builddeps"
+$ExtractedJdkPathGlob = "$PSScriptRoot\jdk-*"
 $SdkFilename = "OpenJDK15U-jdk_x64_windows_hotspot_15.0.1_9.zip"
 $SdkUrl = "https://github.com/AdoptOpenJDK/openjdk15-binaries/releases/download/jdk-15.0.1%2B9/$SdkFilename"
 
@@ -77,11 +77,10 @@ function Invoke-FileDownload([string]$Url, [string]$Filename) {
     Write-Output "Done"
 }
 
-# Reset build dependencies directory
-if (Test-Path $BuildDepsPath) {
-    Remove-Item -Recurse -Path "$BuildDepsPath"
+# Remove any old JDKs
+if (Test-Path $ExtractedJdkPathGlob) {
+    Remove-Item -Recurse -Path "$ExtractedJdkPathGlob"
 }
-New-Item -Type Directory -Path $BuildDepsPath | Out-Null
 
 # Create temp dir
 $tempFolderPath = Join-Path $Env:Temp $(New-Guid)
@@ -89,13 +88,11 @@ New-Item -Type Directory -Path $tempFolderPath | Out-Null
 Write-Output "Temp dir: $tempFolderPath"
 
 # Download dependencies
-Write-Output "Downloading dependencies..."
 Invoke-FileDownload -Url $SdkUrl -Filename "$tempFolderPath\$SdkFilename"
 
 # Extract downloaded files
-Write-Output "Extracting dependencies..."
 Write-Output "Extracting $SdkFilename"
-Expand-Archive -Path "$tempFolderPath\$SdkFilename" -DestinationPath "$BuildDepsPath"
+Expand-Archive -Path "$tempFolderPath\$SdkFilename" -DestinationPath "$PSScriptRoot"
 Write-Output "Done"
 
 # Delete temp dir
