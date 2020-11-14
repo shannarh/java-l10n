@@ -1,5 +1,14 @@
 plugins {
     id 'java'
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.9'
+}
+
+mainClassName = 'LocalizationApp'
+
+javafx {
+    version = '15'
+    modules = [ 'javafx.controls', 'javafx.fxml' ]
 }
 
 repositories {
