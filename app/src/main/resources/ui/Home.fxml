@@ -6,8 +6,8 @@
 
 <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label text="Full name" />
+      <Label text="%ui.label.text" />
       <TextField />
-      <Button mnemonicParsing="false" text="Say Hello" />
+      <Button mnemonicParsing="false" text="%ui.button.text" />
    </children>
 </HBox>
