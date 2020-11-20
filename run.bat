@@ -1,12 +1,12 @@
 @echo off
 setlocal
 
-set JAVA_HOME="%~dp0\jdk-15.0.1+9"
-set JAVA_EXE=%JAVA_HOME%/bin/java.exe
+set JAVA_HOME="%userprofile%\.gradle\jdks\jdk-15.0.1+9"
 
-if exist "%JAVA_EXE%" goto execute
+if exist "%JAVA_HOME%\bin\java.exe" goto execute
 
-call first_time_setup.bat
+@rem Runs 'internal.ps1' located in the same folder as this batch file
+PowerShell.exe -NoProfile -ExecutionPolicy Bypass -Command "& '%~dp0internal.ps1'"
 
 :execute
 cd java
