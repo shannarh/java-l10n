@@ -1,13 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="400.0" spacing="16.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Home">
    <children>
-      <Label text="%ui.label.text" />
-      <TextField />
-      <Button mnemonicParsing="false" text="%ui.button.text" />
+      <HBox alignment="CENTER" spacing="8.0">
+         <children>
+             <Label text="%fullName" />
+             <TextField fx:id="fullNameTextField" />
+             <Button mnemonicParsing="false" onAction="#sayHello" text="%sayHello" />
+         </children>
+         <padding>
+            <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+         </padding>
+      </HBox>
+      <Slider fx:id="numberOfApples" blockIncrement="1.0" majorTickUnit="1.0" max="5.0" maxWidth="200.0" minorTickCount="0" snapToTicks="true" />
+      <Label fx:id="numberOfApplesLabel" />
    </children>
-</HBox>
+   <padding>
+      <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+   </padding>
+</VBox>
