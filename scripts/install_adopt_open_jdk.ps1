@@ -4,7 +4,6 @@ param(
   [System.IO.FileInfo]$DestinationPath
 )
 
-$StartTime = Get-Date
 $SdkFilename = "OpenJDK15U-jdk_x64_windows_hotspot_15.0.1_9.zip"
 $SdkUrl = "https://github.com/AdoptOpenJDK/openjdk15-binaries/releases/download/jdk-15.0.1%2B9/$SdkFilename"
 
@@ -97,5 +96,3 @@ Write-Output "Done"
 
 # Delete temp dir
 Remove-Item -Recurse -Path "$tempFolderPath"
-
-Write-Output "Time taken: $((Get-Date).Subtract($StartTime).Seconds) second(s)"
