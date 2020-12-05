@@ -1,6 +1,6 @@
 # Java Localization demo
 
-Double click `run.bat` to build and run the demo.
+Double click `win-run.bat` (Windows) or `mac-linux-run.sh` (Mac/Linux) to build and run the demo.
 
 Code is located in [app > src > main](app/src/main).
 
