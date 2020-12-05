@@ -52,7 +52,7 @@ function main() {
   fi
 
   cd ../app
-  JAVA_HOME=${JAVA_HOME} ./gradlew $1
+  JAVA_HOME=${JAVA_HOME} ./gradlew "$@"
 }
 
 main "$@"

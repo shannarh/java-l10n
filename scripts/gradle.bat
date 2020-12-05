@@ -19,6 +19,6 @@ PowerShell.exe -NoProfile -ExecutionPolicy Bypass -Command "& '%~dp0install_adop
 
 :execute
 cd "%~dp0..\app"
-call gradlew.bat %1
+call gradlew.bat %*
 
 endlocal
