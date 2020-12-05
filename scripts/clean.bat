@@ -1,6 +1,6 @@
 @echo off
 
-call scripts\gradle.bat clean
-call scripts\gradle.bat --stop
+call .\gradle.bat clean
+call .\gradle.bat --stop
 
 pause
