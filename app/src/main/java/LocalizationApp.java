@@ -3,6 +3,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import net.sf.okapi.common.Event;
+import net.sf.okapi.common.EventType;
+import net.sf.okapi.common.LocaleId;
+import net.sf.okapi.common.filterwriter.GenericContent;
+import net.sf.okapi.common.resource.RawDocument;
+import net.sf.okapi.common.resource.TextContainer;
+import net.sf.okapi.filters.xliff2.XLIFF2Filter;
 
 import java.io.IOException;
 import java.util.Locale;
@@ -57,6 +64,40 @@ public class LocalizationApp extends Application {
         }
         else {
             primaryStage.getScene().setRoot(detailsView);
+        }
+    }
+
+    private void xliffTest() {
+        try {
+            // Create the filter (based on the extension of the input)
+            XLIFF2Filter filter = new XLIFF2Filter();
+            // Open the document to process
+            filter.open(
+                new RawDocument(getClass().getResource("details_pt.xlf").toURI(),
+                    "UTF-8",
+                    LocaleId.ENGLISH,
+                    LocaleId.PORTUGUESE));
+
+            // Handles the conversion between a coded text object and a generic markup string?
+            GenericContent fmt = new GenericContent();
+
+            System.out.println("Starting...");
+            // process the input document
+            while (filter.hasNext()) {
+                Event event = filter.next();
+                if (event.isTextUnit()) {
+                    TextContainer target = event.getTextUnit().getTarget(LocaleId.PORTUGUESE);
+                    System.out.println(target != null ? target.toString() : "");
+                    fmt.setContent(event.getTextUnit().getSource().getFirstContent());
+                    System.out.println(fmt.toString());
+                }
+                else {
+                    System.out.println("Other");
+                }
+            }
+            System.out.println("Done");
+        } catch (Throwable e) {
+            e.printStackTrace();
         }
     }
 }

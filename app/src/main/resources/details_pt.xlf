@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="en" trgLang="pt">
+    <file id="f1">
+        <unit id="title" name="title">
+            <segment>
+                <source>Page title</source>
+                <target>Título da página</target>
+            </segment>
+        </unit>
+        <unit id="content">
+            <segment>
+                <source>First sentence.</source>
+                <target>Primeira frase.</target>
+            </segment>
+            <ignorable>
+                <source> </source>
+            </ignorable>
+            <segment>
+                <source>Second sentence.</source>
+                <target>Segunda frase.</target>
+            </segment>
+        </unit>
+    </file>
+</xliff>
