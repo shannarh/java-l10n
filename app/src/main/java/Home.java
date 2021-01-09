@@ -1,12 +1,14 @@
 import javafx.beans.binding.Bindings;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
+import java.io.IOException;
 import java.text.MessageFormat;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
-public class Home {
+public class Home extends SceneController {
     public TextField fullNameTextField;
     public Slider numberOfApples;
     public Label numberOfApplesLabel;
@@ -22,8 +24,12 @@ public class Home {
                 }), numberOfApples.valueProperty()));
     }
 
-    public void sayHello() {
+    public void sayHello() throws IOException {
         String greeting = MessageFormat.format(messages.getString("greeting"), fullNameTextField.getText());
         new Alert(Alert.AlertType.NONE, greeting, ButtonType.OK).show();
+    }
+
+    public void goToDetails(ActionEvent actionEvent) throws IOException {
+        appController.goToDetails();
     }
 }
