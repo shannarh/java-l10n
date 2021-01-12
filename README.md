@@ -1,6 +1,6 @@
 # Java Localization demo
 
-![CI build status badge](https://github.com/cletusw/java-l10n/workflows/Gradle%20build/badge.svg)
+![CI build status badge](https://github.com/cletusw/java-l10n/workflows/Java%20build/badge.svg)
 
 Double click `win-run.bat` (Windows) or `mac-linux-run.sh` (Mac/Linux) to build and run the demo.
 
