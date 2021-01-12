@@ -1,0 +1,19 @@
+name: Java CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Grant execute permission for gradle
+      run: chmod +x ./scripts/gradle.sh
+    - name: Build with custom Gradle script (handles downloading JDK on its own)
+      run: ./scripts/gradle.sh build
