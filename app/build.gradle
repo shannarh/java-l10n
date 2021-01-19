@@ -32,3 +32,10 @@ task runInPortuguese {
     }
     finalizedBy 'run'
 }
+
+task runInPortuguesePortugal {
+    doFirst {
+        applicationDefaultJvmArgs = ['-Duser.language=pt_PT']
+    }
+    finalizedBy 'run'
+}

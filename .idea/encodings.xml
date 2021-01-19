@@ -4,5 +4,6 @@
     <file url="file://$PROJECT_DIR$/app/src/main/resources/details.properties" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/src/main/resources/home.properties" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/src/main/resources/home_pt.properties" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/resources/home_pt_PT.properties" charset="UTF-8" />
   </component>
 </project>
