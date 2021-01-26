@@ -59,4 +59,20 @@ public class LocalizationApp extends Application {
             primaryStage.getScene().setRoot(detailsView);
         }
     }
+
+    public void goToDatesAndNumbers() throws IOException {
+        ResourceBundle messages = ResourceBundle.getBundle("datesAndNumbers", Locale.getDefault());
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("ui/DatesAndNumbers.fxml"), messages);
+        Parent datesAndNumbersView = loader.load();
+        DatesAndNumbers datesAndNumbersController = loader.getController();
+        datesAndNumbersController.setAppController(this);
+        primaryStage.setTitle("Dates and numbers");
+
+        if (primaryStage.getScene() == null) {
+            primaryStage.setScene(new Scene(datesAndNumbersView));
+        }
+        else {
+            primaryStage.getScene().setRoot(datesAndNumbersView);
+        }
+    }
 }
