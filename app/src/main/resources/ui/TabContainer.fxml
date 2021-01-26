@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<TabPane prefHeight="250.0" prefWidth="400.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1"
+         xmlns:fx="http://javafx.com/fxml/1" fx:controller="TabContainer">
+    <tabs>
+        <Tab text="%homeTabText">
+            <content>
+                <fx:include fx:id="home" source="Home.fxml" resources="home.properties" charset="utf-8"/>
+            </content>
+        </Tab>
+        <Tab text="%detailsTabText">
+            <content>
+                <fx:include fx:id="details" source="Details.fxml" resources="details" charset="utf-8"/>
+            </content>
+        </Tab>
+    </tabs>
+</TabPane>

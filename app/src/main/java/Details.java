@@ -13,6 +13,6 @@ public class Details extends SceneController {
     }
 
     public void goBack() throws IOException {
-        appController.goToHome();
+        new Alert(Alert.AlertType.NONE, "TODO", ButtonType.OK).show();
     }
 }

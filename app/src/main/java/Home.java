@@ -30,6 +30,6 @@ public class Home extends SceneController {
     }
 
     public void goToDetails(ActionEvent actionEvent) throws IOException {
-        appController.goToDetails();
+        new Alert(Alert.AlertType.NONE, "TODO", ButtonType.OK).show();
     }
 }
