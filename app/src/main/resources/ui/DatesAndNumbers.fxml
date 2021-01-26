@@ -30,11 +30,23 @@
                 </GridPane>
                 <TextFlow textAlignment="CENTER">
                     <children>
-                        <Label fx:id="dividendFormatted" minWidth="50" />
+                        <Label fx:id="dividendFormatted" minWidth="50">
+                            <padding>
+                                <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                            </padding>
+                        </Label>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="÷" textAlignment="CENTER" />
-                        <Label fx:id="divisorFormatted" minWidth="50" />
+                        <Label fx:id="divisorFormatted" minWidth="50">
+                            <padding>
+                                <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                            </padding>
+                        </Label>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="=" textAlignment="CENTER" />
-                        <Label fx:id="outputFormatted" minWidth="50" />
+                        <Label fx:id="outputFormatted" minWidth="50">
+                            <padding>
+                                <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                            </padding>
+                        </Label>
                     </children>
                 </TextFlow>
             </children>
