@@ -26,6 +26,7 @@
    <bottom>
       <ButtonBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <buttons>
+            <Button mnemonicParsing="false" onAction="#goToFailures" text="%goToFailures" />
             <Button mnemonicParsing="false" onAction="#goToDetails" text="%goToDetails" />
             <Button mnemonicParsing="false" onAction="#goToDatesAndNumbers" text="%goToDatesAndNumbers" />
         </buttons>

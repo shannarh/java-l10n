@@ -36,4 +36,8 @@ public class Home extends SceneController {
     public void goToDatesAndNumbers(ActionEvent actionEvent) throws IOException {
         appController.goToDatesAndNumbers();
     }
+
+    public void goToFailures(ActionEvent actionEvent) throws IOException {
+        appController.goToFailures();
+    }
 }
