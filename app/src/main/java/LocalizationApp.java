@@ -75,4 +75,20 @@ public class LocalizationApp extends Application {
             primaryStage.getScene().setRoot(datesAndNumbersView);
         }
     }
+
+    public void goToFailures() throws IOException {
+        ResourceBundle messages = ResourceBundle.getBundle("failures", Locale.getDefault());
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("ui/Failures.fxml"), messages);
+        Parent failuresView = loader.load();
+        Failures failuresController = loader.getController();
+        failuresController.setAppController(this);
+        primaryStage.setTitle("Failures");
+
+        if (primaryStage.getScene() == null) {
+            primaryStage.setScene(new Scene(failuresView));
+        }
+        else {
+            primaryStage.getScene().setRoot(failuresView);
+        }
+    }
 }
