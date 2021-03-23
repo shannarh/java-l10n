@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import java.lang.String?>
 <?import java.util.HashMap?>
-<BorderPane minWidth="500.0" prefHeight="200.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/11.0.1"
+<BorderPane minWidth="500.0" prefHeight="300.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/11.0.1"
             xmlns:fx="http://javafx.com/fxml/1" fx:controller="Failures">
     <fx:define>
         <HashMap fx:id="resources"

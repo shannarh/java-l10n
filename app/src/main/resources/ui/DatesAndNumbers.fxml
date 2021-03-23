@@ -5,9 +5,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane minWidth="500.0" prefHeight="200.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DatesAndNumbers">
+<BorderPane minWidth="500.0" prefHeight="300.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DatesAndNumbers">
     <center>
-        <VBox maxWidth="300.0" spacing="16.0">
+        <VBox alignment="TOP_CENTER" maxWidth="300.0" spacing="16.0">
             <padding>
                 <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
             </padding>
@@ -49,6 +49,12 @@
                         </Label>
                     </children>
                 </TextFlow>
+            <Separator prefWidth="200.0" />
+            <Label fx:id="todayIsLabel" minWidth="50">
+               <padding>
+                  <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+               </padding>
+            </Label>
             </children>
         </VBox>
     </center>

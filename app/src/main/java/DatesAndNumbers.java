@@ -1,22 +1,55 @@
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.beans.binding.Bindings;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
+import javafx.util.Duration;
 
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.text.MessageFormat;
 import java.text.NumberFormat;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 public class DatesAndNumbers extends SceneController {
     private static final int MAX_NUMBER_INPUT_LENGTH = 64;
+
+    private final ResourceBundle messages = ResourceBundle.getBundle("datesAndNumbers", Locale.getDefault());
+    private final MessageFormat todayIsFormatter = new MessageFormat(messages.getString("todayIs"));
+    private final StringProperty currentLocalizedDateTime = new SimpleStringProperty("");
+    private final Timeline timeline;
 
     public TextField dividend;
     public TextField divisor;
     public Label dividendFormatted;
     public Label divisorFormatted;
     public Label outputFormatted;
+    public Label todayIsLabel;
+
+    public DatesAndNumbers() {
+        timeline = new Timeline(
+            new KeyFrame(
+                Duration.ZERO,
+                event -> {
+                    currentLocalizedDateTime.set(
+                        ZonedDateTime.now()
+                            .format(
+                                DateTimeFormatter.ofLocalizedDateTime(FormatStyle.LONG)));
+                }
+            ),
+            new KeyFrame(Duration.millis(500))
+        );
+        timeline.setCycleCount(Timeline.INDEFINITE);
+    }
 
     @FXML
     public void initialize() {
@@ -54,9 +87,19 @@ public class DatesAndNumbers extends SceneController {
                     }
                 },
                 dividend.textProperty(), divisor.textProperty()));
+
+        todayIsLabel.textProperty()
+            .bind(Bindings.createStringBinding(
+                () -> todayIsFormatter.format(new Object[]{
+                    currentLocalizedDateTime.get()
+                }), currentLocalizedDateTime));
+
+        timeline.play();
     }
 
     public void goBack() throws IOException {
+        timeline.stop();
+
         appController.goToHome();
     }
 
